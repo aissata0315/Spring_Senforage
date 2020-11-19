@@ -13,4 +13,46 @@ public class Client implements Serializable {
     @ManyToOne
     @JoinColumn(name = "village_ID")
     private Village village;
+
+    public Client() {
+    }
+
+    public Client(int id, String nom, String telephone, Village village) {
+        this.id = id;
+        this.nom = nom;
+        this.telephone = telephone;
+        this.village = village;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public Village getVillage() {
+        return village;
+    }
+
+    public void setVillage(Village village) {
+        this.village = village;
+    }
 }
