@@ -26,6 +26,14 @@ public class Role implements Serializable {
 
     }
 
+    public List<User> getUsers() {
+        return Users;
+    }
+
+    public void setUsers(List<User> users) {
+        Users = users;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des villages</title>
+    <link  rel = "stylesheet" type="text/css" th:href="@{../css/bootstrap.min.css}"/>
+
+</head>
+<body>
+ <h1>Liste des villages</h1>
+ <table>
+     <tr>
+         <th>Identifiant</th>
+         <th>Nom</th>
+         <th>Action</th>
+     </tr>
+
+     <tr th:each="v:${liste_villages}">
+         <th th:text="${v.id}" ></th>
+         <th th:text="${v.nom}" ></th>
+         <th></th>
+     </tr>
+ </table>
+
+</body>
+</html>

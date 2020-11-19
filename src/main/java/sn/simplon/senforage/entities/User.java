@@ -72,6 +72,14 @@ public class User implements Serializable {
         return roles;
     }
 
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
