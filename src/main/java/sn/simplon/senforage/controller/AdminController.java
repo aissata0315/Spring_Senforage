@@ -13,24 +13,35 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class AdminController {
+
     @RequestMapping(value = "/")
-    public String index(){
+    public String index() {
         return "redirect:/logon";
     }
-    @RequestMapping(value = "/logon")
-    public String logon(ModelMap map, HttpServletRequest req, HttpServletResponse res){
-        String user = req.getRemoteUser(); //recuperation email
-        System.out.println("Principal is:" +user);
 
-        if (user != null)
-            return "client/client";
-        else
-            return "/login";
+    @RequestMapping(value = "")
+    public String home() {
+        return "redirect:/logon";
     }
+
+
     @RequestMapping(value = "/login")
     public String login(){
         return "login";
     }
+    @RequestMapping(value = "/logon")
+    public String logon(ModelMap map, HttpServletRequest req, HttpServletResponse res){
+        String user = req.getRemoteUser(); //recuperation email
+//        String user = req.getRemoteUser();
+        System.out.println("Principal is:" +req.getParameter("username"));
+        System.out.println("Principal is:" +req.getParameter("password"));
+
+        if (user != null)
+            return "client/client";
+        else
+            return "redirect:/login";
+    }
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest req, HttpServletResponse res){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

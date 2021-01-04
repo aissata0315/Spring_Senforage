@@ -1,6 +1,7 @@
 package sn.simplon.senforage.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -8,7 +9,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.servlet.Filter;
 import javax.sql.DataSource;
 
 @Configuration
@@ -21,9 +24,11 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         BCryptPasswordEncoder passwordEncoder = passwordEncoder();
-        System.out.println("=============================================");
+      /*  System.out.println("=============================================");
         System.out.println("Mot de passe "+passwordEncoder.encode("passer"));
         System.out.println("=============================================");
+
+       */
 
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
@@ -31,9 +36,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("Select u.email as principal, r.nom as role from user u, role r, user_role ur where u.id = ur.idu and r.id = ur.idr and u.email = ?")
                 .rolePrefix("ROLE_")
                 .passwordEncoder(passwordEncoder);
-
     }
-
     @Override
     protected void configure(HttpSecurity http) {
 
@@ -43,6 +46,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
             http.authorizeRequests().antMatchers("/Client/**").hasRole("USER");
             http.authorizeRequests().antMatchers("/User/**", "/Role/**").hasRole("SUPERADMIN");
             http.exceptionHandling().accessDeniedPage("/Admin/403");
+            http.authorizeRequests().antMatchers("/**").permitAll();
             http.csrf().disable();
 
         } catch (Exception ex) {
@@ -51,10 +55,13 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         }
     }
 
-    @Bean
+   @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        //PasswordEncoder password = new BCryptPasswordEncoder(); PasswordEncoder
         BCryptPasswordEncoder password = new BCryptPasswordEncoder();
         return password;
     }
+
+
+
+
 }
