@@ -14,21 +14,22 @@
     <ul class="nav navbar-nav">
         <li><a th:href="@{/Village/liste}">Gestion des villages</a></li>
         <li><a th:href="@{/Client/liste}">Gestion des clients</a></li>
+        <li> <a  th:href="@{/logout}">Logout</a></li>
     </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                <span sec:authentication="name"></span>
+<!--    <ul class="navbar-nav ml-auto">-->
+<!--        <li class="nav-item dropdown">-->
+<!--            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">-->
+<!--                <span sec:authentication="name"></span>-->
 
-            </a>
-            <div class="dropdown-menu">
-               <!-- <a sec:authorize="!isAuthenticated()" class="dropdown-item" href="#">Login</a> !-->
-                <a class="dropdown-item" th:href="@{/logout}">Logout</a>
-                <a class="dropdown-item" href="#">Profile</a>
-            </div>
-        </li>
+<!--            </a>-->
+<!--            <div class="dropdown-menu">-->
+<!--               &lt;!&ndash; <a sec:authorize="!isAuthenticated()" class="dropdown-item" href="#">Login</a> !&ndash;&gt;-->
+<!--                <a class="dropdown-item" th:href="@{/logout}">Logout</a>-->
+<!--                <a class="dropdown-item" href="#">Profile</a>-->
+<!--            </div>-->
+<!--        </li>-->
 
-    </ul>
+<!--    </ul>-->
 </div>
 
 </body>
