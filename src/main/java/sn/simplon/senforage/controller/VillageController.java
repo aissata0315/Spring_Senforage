@@ -16,7 +16,7 @@ public class VillageController {
     @Autowired
     private IVillage villagedao;
 
-    @RequestMapping(value="Village/liste")
+    @RequestMapping(value="/Village/liste")
     public ModelAndView liste(){
 
         List<Village> villages = villagedao.findAll();

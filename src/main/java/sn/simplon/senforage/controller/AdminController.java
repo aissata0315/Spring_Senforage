@@ -32,12 +32,12 @@ public class AdminController {
     @RequestMapping(value = "/logon")
     public String logon(ModelMap map, HttpServletRequest req, HttpServletResponse res){
         String user = req.getRemoteUser(); //recuperation email
-//        String user = req.getRemoteUser();
-        System.out.println("Principal is:" +req.getParameter("username"));
-        System.out.println("Principal is:" +req.getParameter("password"));
+        //      String user = req.getRemoteUser();
+        System.out.println("Principal is:" +user);
 
         if (user != null)
-            return "client/client";
+            return "/accueil";
+
         else
             return "redirect:/login";
     }
@@ -53,6 +53,6 @@ public class AdminController {
 
     @RequestMapping(value = "/Admin/403")
     public String denied(){
-        return "403";
+        return "security/403";
     }
 }

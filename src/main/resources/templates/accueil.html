@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Liste des villages</title>
+    <!--link  rel = "stylesheet" type="text/css" th:href="@{../../css/bootstrap.min.css}"/!-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="nav navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a th:href="@{/Village/liste}">Gestion des villages</a></li>
+        <li><a th:href="@{/Client/liste}">Gestion des clients</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <span sec:authentication="name"></span>
+
+            </a>
+            <div class="dropdown-menu">
+               <!-- <a sec:authorize="!isAuthenticated()" class="dropdown-item" href="#">Login</a> !-->
+                <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+                <a class="dropdown-item" href="#">Profile</a>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+</body>
+</html>

@@ -26,34 +26,37 @@ public class SenforageApplication {
 
         IUser iUser = ctx.getBean(IUser.class);
 
-      /*  Role role = new Role();
-        role.setId(1);
-        role.setNom("ROLE_USER");
-
-        IRole iRole = ctx.getBean(IRole.class);
-        try {
-            iRole.save(role);
-            System.out.println("yes");
-        }catch (Exception e){
-
-        }*/
-      /*  User user = new User();
-        user.setId(1);
-        user.setNom("Sow");
-        user.setPrenom("Fama");
-        user.setEmail("fama@simplon.co");
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(bCryptPasswordEncoder.encode("passer"));
-        user.setEtat(1);
-        try {
-
-            iUser.save(user);
-            System.out.println("ok");
-
-        } catch (Exception e){
-            e.printStackTrace();
-
-        }*/
+//       Role role = new Role();
+//        //role.setId(1);
+//        role.setNom("ADMIN");
+//
+//        IRole iRole = ctx.getBean(IRole.class);
+//        try {
+//            iRole.save(role);
+//            System.out.println("yes");
+//        }catch (Exception e){
+//
+//        }
+//      User user = new User();
+//        user.setId(1);
+//        user.setNom("test");
+//        user.setPrenom("test");
+//        user.setEmail("test@simplon.co");
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        user.setPassword(bCryptPasswordEncoder.encode("passer"));
+//        user.setEtat(1);
+//        List<Role> roles = new ArrayList<>();
+//        roles.add(role);
+//        user.setRoles(roles);
+//        try {
+//
+//            iUser.save(user);
+//            System.out.println("ok");
+//
+//        } catch (Exception e){
+//            e.printStackTrace();
+//
+//        }
 
     }
 
